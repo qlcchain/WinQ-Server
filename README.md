@@ -25,7 +25,9 @@ Run `./build.sh` to install docker
 
 ### download WinQ docker image,run image and print p2pid
 
-Run `./start.sh` 
+Run `./start.sh` ,you will receive the following reminder:
+- `Enter server's ip or domain[vpn.mydomain]:`,enter your own public IP or domain name.
+- `Common Name (eg: your user, host, or server name) [Easy-RSA CA]:`,press the Enter key.
 
 ## Bugs/Feedback
 If you run into any issues, please use the [GitHub Issue Tracker](https://github.com/qlcchain/WinQ-Server/issues) 
