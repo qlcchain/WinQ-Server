@@ -22,14 +22,8 @@ docker pull winq/winq-openvpn
 clientname="WinQVpn"
 OVPN_DATA="ovpn_data_winq"
 home_dir="$HOME/WinQ"
-DOMAIN=$1
-if [ ! $DOMAIN ]; then
-	echo -n " Enter server's ip or domain[vpn.mydomain]:"
-	read DOMAIN
-	if [ ! $DOMAIN ]; then
-		DOMAIN="vpn.mydomain"
-	fi
-fi
+DOMAIN=`wget http://ipecho.net/plain -O - -q ; echo`
+
 docker volume create --name $OVPN_DATA
 docker run -v $OVPN_DATA:/etc/openvpn --log-driver=none --rm winq/winq-openvpn ovpn_genconfig -u udp://$DOMAIN:18888
 docker run -v $OVPN_DATA:/etc/openvpn --log-driver=none --rm -it winq/winq-openvpn ovpn_initpki nopass
