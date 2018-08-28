@@ -26,7 +26,6 @@ chmod +x *.sh
 ### 下载WinQ docker镜像，运行镜像以及打印p2pid脚本。
 
 运行 `./start.sh` ,你将会收到以下提示:
-- `Enter server's ip or domain[vpn.mydomain]:`,输入云服务器的公网IP或域名。
 - `Common Name (eg: your user, host, or server name) [Easy-RSA CA]:`,按回车键即可。
 
 ## 故障反馈
