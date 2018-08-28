@@ -6,6 +6,9 @@
 
 The WinQ server is used together with the WinQ mobile terminal to solve the problem of mobile terminal asset retention, power consumption, and traffic consumption. The WinQ server maintains the resident of the asset. The user directly connects to the server-side WinQ to use the asset, and the WinQ mobile terminal implements the functions of managing the server asset, such as registering assets and settlement.
 
+## Port Open
+Need to open the cloud server's 18888 port and 33445 port
+
 ## Development Guide
 WinQ Server uses the docker deployment method, which can be easily deployed to the cloud server by running scripts. Currently, only the Linux operating system is supported.
 
