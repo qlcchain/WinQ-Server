@@ -12,10 +12,14 @@ if [ $(cat /proc/version | grep -c "Red Hat") != 0 ]; then
 	echo "system version is Red Hat"
 	OS="Red Hat"
 fi
+if [ $(cat /proc/version | grep -c "amzn") != 0 ]; then
+	echo "system version is aws"
+	OS=aws
+fi
 if [[ $OS ]]; then
 	echo "INFO Operating System is $OS - $(cat /proc/version)"
 else
-	echo "ERROR only support ubuntu, centos ,Red Hat" && exit
+	echo "ERROR only support ubuntu, centos ,Red Hat,aws" && exit
 fi
 
 
@@ -43,6 +47,10 @@ if ! [ -x "$(command -v docker)" ]; then
 		sudo gpasswd -a $USER docker
 		sudo systemctl restart docker
 
+	elif [ aws = $OS ]; then
+		sudo rm -rf /var/lib/docker
+		sudo yum install docker -y
+		sudo service docker start	
 	else
 		sudo rm -rf /var/lib/docker
 		sudo apt-get install \
