@@ -48,8 +48,10 @@ if ! [ -x "$(command -v docker)" ]; then
 		sudo systemctl restart docker
 
 	elif [ aws = $OS ]; then
+		sudo yum update -y
 		sudo rm -rf /var/lib/docker
 		sudo yum install docker -y
+		sudo amazon-linux-extras install docker
 		sudo service docker start	
 	else
 		sudo rm -rf /var/lib/docker
