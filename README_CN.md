@@ -29,7 +29,10 @@ chmod +x *.sh
 ### 下载WinQ docker镜像，运行镜像以及打印p2pid脚本。
 
 运行 `./start.sh` ,你将会收到以下提示:
-- `Common Name (eg: your user, host, or server name) [Easy-RSA CA]:`,按回车键即可。
+- `Do you want install openvpn[yes/no]:`  
+	- 如果你选择 `yes`,将会在你当前服务器上安装openvpn服务，并且你会收到以下提示:  
+		- `Common Name (eg: your user, host, or server name) [Easy-RSA CA]:`,按回车键即可;  
+	- 如果你在别的服务器上已经搭好了openvpn 服务 ,你可以选择 `no` 并且你可以把其他服务器上的配置文件拷贝过来,拷贝的路径为当前用户主目录下的WinQ文件夹,举个例子, 如果当前用户是root，那路径为 `/root/WinQ/`.
 
 ## 故障反馈
 遇到任何问题，请试用  [GitHub Issue Tracker](https://github.com/qlcchain/WinQ-Server/issues) 
