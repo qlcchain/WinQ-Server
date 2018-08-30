@@ -29,7 +29,10 @@ Run `./build.sh` to install docker
 ### download WinQ docker image,run image and print p2pid
 
 Run `./start.sh` ,you will receive the following reminder:
-- `Common Name (eg: your user, host, or server name) [Easy-RSA CA]:`,press the Enter key.
+- `Do you want install openvpn[yes/no]:`  
+	- if you choose `yes`,will install openvpn on current server and you will receive the following reminder:  
+		- `Common Name (eg: your user, host, or server name) [Easy-RSA CA]:`,press the Enter key;  
+	- if you already have vpn server On another server ,you can choose `no` and you can put your .ovpn file to current server,the path is the WinQ folder under the current user's home directory,for example, if the current user is `root`, the path is `/root/WinQ/`.
 
 ## Bugs/Feedback
 If you run into any issues, please use the [GitHub Issue Tracker](https://github.com/qlcchain/WinQ-Server/issues) 
