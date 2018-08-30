@@ -16,10 +16,14 @@ if [ $(cat /proc/version | grep -c "amzn") != 0 ]; then
 	echo "system version is aws"
 	OS=aws
 fi
+if [ $(cat /proc/version | grep -c "Debian") != 0 ]; then
+	echo "system version is Debian"
+	OS=Debian
+fi
 if [[ $OS ]]; then
 	echo "INFO Operating System is $OS - $(cat /proc/version)"
 else
-	echo "ERROR only support ubuntu, centos ,Red Hat,aws" && exit
+	echo "ERROR only support ubuntu, centos ,Red Hat,aws，debian" && exit
 fi
 
 
@@ -52,7 +56,14 @@ if ! [ -x "$(command -v docker)" ]; then
 		sudo rm -rf /var/lib/docker
 		sudo yum install docker -y
 		sudo amazon-linux-extras install docker
-		sudo service docker start	
+		sudo service docker start
+	elif [ Debian = $OS ]; then
+		sudo apt-get update -y
+		sudo rm -rf /var/lib/docker
+		sudo apt-get install curl -y
+		curl -fsSL get.docker.com -o get-docker.sh
+		sudo sh get-docker.sh --mirror Aliyun
+		sudo rm -rf get-docker.sh
 	else
 		sudo rm -rf /var/lib/docker
 		sudo apt-get install \
