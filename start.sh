@@ -14,6 +14,12 @@ docker container run -d --name $name_winq \
 -v ~:/root \
 winq/winq-node:latest
 
+read -p "Do you want to install openvpn[yes/no]：" choose
+
+if [ $choose = "no" ]
+then
+    source ./winq_server_id.sh && exit
+fi
 name_openvpn=openvpn
 docker container stop $name_openvpn && docker container rm -f $name_openvpn
 
